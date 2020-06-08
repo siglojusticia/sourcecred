@@ -6,6 +6,7 @@ import load from "./load";
 import graph from "./graph";
 import merge from "./merge";
 import score from "./score";
+import credrank from "./credrank";
 
 const sourcecred: Command = async (args, std) => {
   if (args.length === 0) {
@@ -21,6 +22,8 @@ const sourcecred: Command = async (args, std) => {
       return merge(args.slice(1), std);
     case "score":
       return score(args.slice(1), std);
+    case "credrank":
+      return credrank(args.slice(1), std);
     default:
       std.err("fatal: unknown command: " + JSON.stringify(args[0]));
       return 1;
